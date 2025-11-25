@@ -2,8 +2,6 @@
 
 // let, const, var
 
-
-
 let userName = "elmir_aslan";
 userName = "akbar"
 let userAge = 19;
@@ -18,8 +16,9 @@ console.log(userAge);
 // kabab-case
 
 
+console.log(isOnline);
 
-let isOnline;
+var isOnline;
 
 isOnline = false;
 
@@ -46,12 +45,12 @@ const API_URL = 'https://northwind.vercel.app/api/categories'
 }
 
 
-
 // let city = "baku"
 
 // let city = "london"
 
 // console.log("city:", city);
+
 
 var score = 85
 
@@ -86,3 +85,9 @@ sayHi()
 console.log(country);
 var country = "Azerbaijan"
 
+// let and const are local
+// var is global
+
+lastName = "Amirov"
+
+console.log(lastName);
