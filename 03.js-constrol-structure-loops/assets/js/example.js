@@ -56,4 +56,3 @@ console.log("average", average);
 
 
 
-// qeyd: nested loop, for of, for in, prompt
