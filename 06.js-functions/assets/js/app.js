@@ -47,8 +47,6 @@ sayHi()
 // square() // 1
 
 
-
-
 //return keyword
 
 
@@ -126,12 +124,12 @@ function averageOfArrayElements(arr) {
 
 // console.log(power(7, 3)); //Uncaught ReferenceError: Cannot access 'power' before initialization
 
-const power = function (number, p) {
-    return number ** p
-}
+// const power = function (number, p) {
+//     return number ** p
+// }
 
 
-console.log(power(3, 2));
+// console.log(power(3, 2));
 
 
 // arrow functions
@@ -235,3 +233,164 @@ const isPolidrom = (word) => {
 
 console.log(isPolidrom('salam'));
 console.log(isPolidrom('racecar'));
+
+
+console.log("-------------");
+
+// anonimous function'
+
+// function(){}
+// ()=>{}
+
+    
+// IIFE - immediately invoked function expression
+
+// (function(){})()
+// (()=>{})()
+
+// (function(){
+//     console.log('I am IIFE');
+// })()
+
+
+let result = ((name)=> `Hello, ${name}`)('Amin')
+
+console.log(result);
+
+// callback functions
+
+//HOC = higher order functions
+
+
+function mainFunc(cb){
+    return cb()
+}
+
+function callbackFunc(){
+    return 'I am CB function'
+}
+
+
+console.log(mainFunc(callbackFunc));
+
+
+
+console.log(mainFunc(()=>{}));
+console.log(mainFunc(function(){}));
+
+
+
+// function power(number, p) {
+//     return number ** p
+// }
+
+// console.log(power(2, 3));
+
+
+
+
+
+
+// examples
+
+
+function calculateDiscount(price, discountPercent) {
+  const discountAmount = (price * discountPercent) / 100;
+  const finalPrice = price - discountAmount;
+  return finalPrice;
+}
+
+console.log(calculateDiscount(100, 10)); // 90
+console.log(calculateDiscount(250, 20)); // 200
+
+
+
+function calculateTotal(price, taxPercent = 18) {
+  const tax = (price * taxPercent) / 100;
+  return price + tax;
+}
+
+console.log(calculateTotal(100));      // 118  (18% default)
+console.log(calculateTotal(100, 8));   // 108  (8% göndərdik)
+
+
+
+let todos = [];
+
+function addTodo(task) {
+  todos.push(task);
+  console.log("Yeni tapşırıq əlavə olundu:", task);
+}
+
+function listTodos() {
+  console.log("Tapşırıq siyahısı:");
+  for (let i = 0; i < todos.length; i++) {
+    console.log(i + 1 + ". " + todos[i]);
+  }
+}
+
+
+addTodo("JavaScript dərsini təkrar et");
+addTodo("10 ədəd məsələ həll et");
+
+listTodos()
+
+// 5 * 4! // 120
+
+// 4 * 3! // 24
+
+// 3 * 2!  // 6
+
+// 2 * 1! // 2
+
+// 1 * 0! // 1
+
+
+// recursiv function
+
+function factorial(n) {
+  if (n === 0) {
+    return 1; // dayandırma şərti
+  } 
+
+  return n * factorial(n - 1); // özünü çağırır
+}
+
+console.log(factorial(3)); // 6
+console.log(factorial(5)); // 120
+
+
+// function factorial(num){
+//     let result = 1;
+//     for(let i = 2; i <= num; i++){
+//         result*=i;
+//     }
+
+//     return result;
+// }
+
+// console.log(factorial(5)); // 120
+// console.log(factorial(3)); // 6
+
+
+
+// unlimited paramater
+
+
+function sumOfAllDigits(...nums){
+    // console.log(nums);
+   
+    let sum = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        sum+=nums[i]
+    }
+
+    return sum
+}
+
+
+console.log(sumOfAllDigits(1,2)); // 3
+console.log(sumOfAllDigits(1,2,3)); // 6
+console.log(sumOfAllDigits(1,2,3,4)); // 10
+console.log(sumOfAllDigits(1,2,3,4,5)); // 15
+
