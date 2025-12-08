@@ -185,7 +185,7 @@ console.log('--------------------------')
 // düzbucaqlının sahəsini hesablayan funksiya yaz
 
 
-function calcArea(a, b){
+function calcArea(a, b) {
     let result = a * b;
     return result;
 }
@@ -196,7 +196,7 @@ console.log(calcArea(3, 4)); //12
 
 const reverseStr = (word) => {
     let result = '';
-    for(let i = word.length - 1; i >= 0; i--){
+    for (let i = word.length - 1; i >= 0; i--) {
         result += word[i]
     }
 
@@ -212,7 +212,7 @@ console.log(reverseStr('racecar'));
 
 const isPolidrom = (word) => {
     let reverse = '';
-    for(let i = word.length - 1; i >= 0; i--){
+    for (let i = word.length - 1; i >= 0; i--) {
         reverse += word[i]
     }
 
@@ -223,7 +223,7 @@ const isPolidrom = (word) => {
     // }
 
 
-    if(word === reverse){
+    if (word === reverse) {
         return `${word} is polidrom`
     }
 
@@ -242,7 +242,7 @@ console.log("-------------");
 // function(){}
 // ()=>{}
 
-    
+
 // IIFE - immediately invoked function expression
 
 // (function(){})()
@@ -253,7 +253,7 @@ console.log("-------------");
 // })()
 
 
-let result = ((name)=> `Hello, ${name}`)('Amin')
+let result = ((name) => `Hello, ${name}`)('Amin')
 
 console.log(result);
 
@@ -262,11 +262,11 @@ console.log(result);
 //HOC = higher order functions
 
 
-function mainFunc(cb){
+function mainFunc(cb) {
     return cb()
 }
 
-function callbackFunc(){
+function callbackFunc() {
     return 'I am CB function'
 }
 
@@ -275,8 +275,8 @@ console.log(mainFunc(callbackFunc));
 
 
 
-console.log(mainFunc(()=>{}));
-console.log(mainFunc(function(){}));
+console.log(mainFunc(() => { }));
+console.log(mainFunc(function () { }));
 
 
 
@@ -295,9 +295,9 @@ console.log(mainFunc(function(){}));
 
 
 function calculateDiscount(price, discountPercent) {
-  const discountAmount = (price * discountPercent) / 100;
-  const finalPrice = price - discountAmount;
-  return finalPrice;
+    const discountAmount = (price * discountPercent) / 100;
+    const finalPrice = price - discountAmount;
+    return finalPrice;
 }
 
 console.log(calculateDiscount(100, 10)); // 90
@@ -306,8 +306,8 @@ console.log(calculateDiscount(250, 20)); // 200
 
 
 function calculateTotal(price, taxPercent = 18) {
-  const tax = (price * taxPercent) / 100;
-  return price + tax;
+    const tax = (price * taxPercent) / 100;
+    return price + tax;
 }
 
 console.log(calculateTotal(100));      // 118  (18% default)
@@ -318,15 +318,15 @@ console.log(calculateTotal(100, 8));   // 108  (8% göndərdik)
 let todos = [];
 
 function addTodo(task) {
-  todos.push(task);
-  console.log("Yeni tapşırıq əlavə olundu:", task);
+    todos.push(task);
+    console.log("Yeni tapşırıq əlavə olundu:", task);
 }
 
 function listTodos() {
-  console.log("Tapşırıq siyahısı:");
-  for (let i = 0; i < todos.length; i++) {
-    console.log(i + 1 + ". " + todos[i]);
-  }
+    console.log("Tapşırıq siyahısı:");
+    for (let i = 0; i < todos.length; i++) {
+        console.log(i + 1 + ". " + todos[i]);
+    }
 }
 
 
@@ -349,11 +349,11 @@ listTodos()
 // recursiv function
 
 function factorial(n) {
-  if (n === 0) {
-    return 1; // dayandırma şərti
-  } 
+    if (n === 0) {
+        return 1; // dayandırma şərti
+    }
 
-  return n * factorial(n - 1); // özünü çağırır
+    return n * factorial(n - 1); // özünü çağırır
 }
 
 console.log(factorial(3)); // 6
@@ -377,20 +377,80 @@ console.log(factorial(5)); // 120
 // unlimited paramater
 
 
-function sumOfAllDigits(...nums){
+function sumOfAllDigits(...nums) {
     // console.log(nums);
-   
+
     let sum = nums[0];
     for (let i = 1; i < nums.length; i++) {
-        sum+=nums[i]
+        sum += nums[i]
     }
 
     return sum
 }
 
 
-console.log(sumOfAllDigits(1,2)); // 3
-console.log(sumOfAllDigits(1,2,3)); // 6
-console.log(sumOfAllDigits(1,2,3,4)); // 10
-console.log(sumOfAllDigits(1,2,3,4,5)); // 15
+console.log(sumOfAllDigits(1, 2)); // 3
+console.log(sumOfAllDigits(1, 2, 3)); // 6
+console.log(sumOfAllDigits(1, 2, 3, 4)); // 10
+console.log(sumOfAllDigits(1, 2, 3, 4, 5)); // 15
+
+// function declearation example
+
+function welcome(user) {
+    return `Welcome, ${user ? user.name : 'guest'}`
+}
+
+console.log(welcome({
+    name: 'farman',
+    email: 'farman@code.edu.az'
+}));
+
+const userObj = {
+    name: 'elmir',
+    email: 'elmir@code.edu.az'
+}
+
+console.log(welcome(userObj));
+
+console.log(welcome());
+
+
+// callback function example
+
+function buyTicket(callback) {
+    console.log('Bilet alınır...');
+
+    setTimeout(() => {
+        console.log('Bilet alındı.');
+        callback()
+    }, 1000);
+}
+
+function buyPopcorn(callback) {
+    console.log('Popcorn alınır...');
+    setTimeout(() => {
+        console.log('Popcorn alındı.');
+        callback()
+    }, 1000);
+}
+
+function watchFilm() {
+    console.log('Kino zalına gedilir.');
+    setTimeout(() => {
+        console.log('Kinoya baxılır...');
+    }, 1000)
+
+}
+
+buyTicket(()=>{
+    buyPopcorn(watchFilm)
+})
+
+(function () {
+    const secret = "gizli məlumat";
+    console.log(secret);
+})();
+
+console.log(secret); // Error: secret is not defined
+
 
