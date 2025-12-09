@@ -250,7 +250,6 @@ const products = [
     tags: ["gaming", "laptop", "windows", "hp"],
     rating: 4.4,
   },
-
   {
     id: "64078be8197e7ef81e3366a7",
     title: "Acer Aspire 7 A715-51G Gaming Laptop 512GB SSD",

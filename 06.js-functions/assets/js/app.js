@@ -259,7 +259,7 @@ console.log(result);
 
 // callback functions
 
-//HOC = higher order functions
+//HOF = higher order functions
 
 
 function mainFunc(cb) {

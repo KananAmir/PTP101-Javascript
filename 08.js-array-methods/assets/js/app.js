@@ -134,16 +134,29 @@ nums.forEach(function (item, i, arr) {
 // map
 
 
-console.log(nums.map((number)=>{
+console.log(nums.map((number) => {
     return number * 2
 }));
 
 
-const newNums = nums.map((item)=> item * 2)
+const newNums = nums.map((item) => item * 2)
 
 console.log(newNums);
 
-console.log(countries.map((c)=>c.slice(0, 3).toUpperCase()));
+console.log(countries.map((c) => c.slice(0, 3).toUpperCase()));
 
+const arr = [3, 7, 9, 4]
+
+const newArr = arr.map((n) => n ** 3)
+
+console.log(newArr); // [27, 343, 729, 64]
+
+// console.log(arr.pop());
+// console.log(arr.shift());
+// console.log(arr);
+
+console.log(arr.unshift());
+
+console.log(arr);
 
 
