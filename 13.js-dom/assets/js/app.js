@@ -112,14 +112,14 @@ document.querySelector('#banner').after(link)
 
 console.log('--------------------');
 
-const photo = document.createElement('img')
+// const photo = document.createElement('img')
 
-photo.setAttribute('src', 'https://www.javascripttutorial.net/wp-content/uploads/2021/04/JavaScript-Tutorial.svg')
-photo.setAttribute('alt', 'javascript logo')
-photo.setAttribute('width', '100')
-document.body.appendChild(photo)
+// photo.setAttribute('src', 'https://www.javascripttutorial.net/wp-content/uploads/2021/04/JavaScript-Tutorial.svg')
+// photo.setAttribute('alt', 'javascript logo')
+// photo.setAttribute('width', '100')
+// document.body.appendChild(photo)
 
-console.log(todoInput.getAttribute('name'));
+// console.log(todoInput.getAttribute('name'));
 
 
 // todoInput.removeAttribute('placeholder')
@@ -165,4 +165,50 @@ divideBtn.addEventListener('click', ()=>{
 })
 subtructBtn.addEventListener('click', ()=>{
     result.textContent = Number(firstNum.value) - Number(secondNum.value )
+})
+
+
+const navList = document.querySelector('.nav-list')
+
+// className
+// navList.className = 'nav-list m-2'
+// console.log(navList.className);
+
+// classList
+
+//add, remove, contains, replace
+// navList.classList.add('d-none')
+// navList.classList.remove('bg-red')
+// console.log(navList.classList);
+console.log(navList.classList.contains('d-block'));
+console.log(navList.classList.contains('d-flex'));
+console.log(navList.classList.replace('bg-red', 'bg-blue'));
+
+
+
+const show = document.querySelector('.show-btn')
+const hide = document.querySelector('.hide-btn')
+const toggleBtn = document.querySelector('.toggle-btn')
+const box = document.querySelector('.box.bg-teal')
+
+show.addEventListener('click', ()=>{
+    // box.style.display = 'block'
+    box.classList.add('show')
+})
+hide.addEventListener('click', ()=>{
+    // box.style.display = 'none'
+    box.classList.remove('show')
+})
+
+// toggleBtn.addEventListener('click', ()=>{
+//     if(box.classList.contains('show')){
+//         box.classList.remove('show')
+//     }else{
+//         box.classList.add('show')
+//     }
+// })
+
+
+toggleBtn.addEventListener('click', ()=>{
+    box.classList.toggle('show')
 })
