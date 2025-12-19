@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.todo-app, .todo-list{
+    padding: 1rem 0;
+}
+.todo-list-wrapper ul li{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.todo-list-wrapper .delete-btn{
+    color: red;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+}
