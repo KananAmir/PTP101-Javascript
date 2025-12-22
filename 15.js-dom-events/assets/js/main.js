@@ -115,3 +115,29 @@ eyeIcon.addEventListener('click', (e)=>{
 
     }
 })
+
+window.addEventListener('load', ()=>{
+    console.log('home page loaded');
+})
+
+window.addEventListener('DOMContentLoaded', ()=>{
+    console.log('DOMContentLoaded');
+})
+
+
+const header = document.querySelector('.header')
+
+// window.addEventListener('scroll', (e)=>{
+//     // console.log(e);
+//     // console.log(window.scrollY);
+//     if(window.scrollY > 0){
+//         header.classList.add('header-scroll')
+//     }else{
+//         header.classList.remove('header-scroll')
+//     }
+// })
+
+
+window.addEventListener('scroll', (e)=>{
+   header.classList.toggle('header-scroll', window.scrollY > 0)
+})

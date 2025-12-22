@@ -3,21 +3,24 @@
 const todoInput = document.querySelector('.todo-input')
 const addBtn = document.querySelector('.add-btn')
 const todoList = document.querySelector('.todo-list')
-
+const errorMessage = document.querySelector('.error-message')
 let todos = []
 
-addBtn.addEventListener('click', () => {
+
+const addTodo = () => {
 
     if (!todoInput.value.trim()) {
-        window.alert('input can not be empty!')
+        // window.alert('input can not be empty!')
+        errorMessage.classList.add('show')
+        todoInput.classList.add('error-border')
         return
     }
     const newTodo = {
         id: Date.now(),
         todoText: todoInput.value.trim(),
-        completed: false
+        completed: false,
+        createdAt: new Date().toDateString()
     }
-
 
 
     todos.push(newTodo)
@@ -33,7 +36,13 @@ addBtn.addEventListener('click', () => {
         showConfirmButton: false,
         timer: 1500
     });
-})
+
+    errorMessage.classList.remove('show')
+    todoInput.classList.remove('error-border')
+}
+
+
+addBtn.addEventListener('click', addTodo)
 
 function renderTodos(todosArray) {
 
@@ -43,16 +52,40 @@ function renderTodos(todosArray) {
 
         const todoContent = document.createElement('div')
         const completedInput = document.createElement('input')
+        todoContent.style.display = 'flex'
+        todoContent.style.gap = '10px'
         // completedInput.setAttribute('type', 'checkbox')
         completedInput.type = 'checkbox'
-        const todoText = document.createElement('span')
-        todoText.textContent = todo.todoText
 
+        completedInput.checked = todo.completed
+
+        completedInput.addEventListener('change', (e)=>{
+            console.log(e.target.checked);
+            
+           todo.completed = e.target.checked
+           
+           renderTodos(todos)
+
+        //    console.log(todos);
+           
+        })
+
+        const todoText = document.createElement('p')
+        todoText.textContent = todo.todoText
+        if (todo.completed) {
+            todoText.style.textDecoration = 'line-through'
+        }
+
+        const dateSpan = document.createElement('span')
+        dateSpan.textContent = todo.createdAt
+
+        todoText.append(', ', dateSpan)
         const actions = document.createElement('div')
         const deleteBtn = document.createElement('button')
         deleteBtn.innerHTML = `
             <i class="fa-solid fa-trash-can"></i>
         `
+        deleteBtn.className = 'delete-btn'
 
         deleteBtn.addEventListener('click', (e) => {
             // console.log(e.target);
@@ -96,3 +129,23 @@ function renderTodos(todosArray) {
 }
 
 renderTodos(todos)
+
+
+todoInput.addEventListener('keyup', (e) => {
+    if (e.target.value.trim()) {
+        errorMessage.classList.remove('show')
+        e.target.classList.remove('error-border')
+    }else{
+        errorMessage.classList.add('show')
+        e.target.classList.add('error-border')
+
+    }
+})
+
+
+window.addEventListener('keyup', (e)=>{
+    if(e.code === 'Enter'){
+        addTodo()
+    }
+    
+})

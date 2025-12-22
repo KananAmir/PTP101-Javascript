@@ -4,22 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+
+
+        body {
+            height: 200vh;
+            scroll-behavior: smooth;
+
+        }
+
         .box {
             width: 100px;
             height: 100px;
             background: red;
+        }
+
+    
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 0;
+            background: teal;
+            transition: all 1s;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+
+        }
+
+        .header ul{
+            display: flex;
+            gap: 2rem;
+        }
+        .header ul a{
+            color: white;
+        }
+
+
+        .header-scroll{
+            padding: 1rem 0;
+            background: orange;
         }
     </style>
 </head>
 
 <body>
 
+    <header>
+        <div class="container">
+            <div class="header">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="about.html">About</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <h1>Home Page</h1>
     <button class="click">click</button>
 
     <input type="search" name="search" id="search" placeholder="search here..">
