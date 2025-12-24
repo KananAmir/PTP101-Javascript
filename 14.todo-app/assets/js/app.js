@@ -4,8 +4,18 @@ const todoInput = document.querySelector('.todo-input')
 const addBtn = document.querySelector('.add-btn')
 const todoList = document.querySelector('.todo-list')
 const errorMessage = document.querySelector('.error-message')
-let todos = []
+// let todos = JSON.parse(localStorage.getItem('todos')) || []
+// let todos = JSON.parse(localStorage.getItem('todos')) ?? [] // nullish coelescing (only null and undefined)
 
+let todos;
+
+if(localStorage.getItem('todos')){
+    todos = JSON.parse(localStorage.getItem('todos'))
+}else{
+    todos = []
+}
+
+console.log(todos);
 
 const addTodo = () => {
 
@@ -24,6 +34,8 @@ const addTodo = () => {
 
 
     todos.push(newTodo)
+
+    localStorage.setItem('todos', JSON.stringify(todos))
 
     renderTodos(todos)
     todoInput.value = ''
@@ -65,6 +77,7 @@ function renderTodos(todosArray) {
            todo.completed = e.target.checked
            
            renderTodos(todos)
+           localStorage.setItem('todos', JSON.stringify(todos))
 
         //    console.log(todos);
            
@@ -110,6 +123,7 @@ function renderTodos(todosArray) {
 
                     todos = todos.filter((q) => q.id !== todo.id)
                     renderTodos(todos)
+                    localStorage.setItem('todos', JSON.stringify(todos))
 
                     Swal.fire({
                         title: "Deleted!",
