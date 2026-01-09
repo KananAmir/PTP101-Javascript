@@ -39,3 +39,24 @@ form.addEventListener('submit', async (e) => {
     }
 
 })
+
+
+async function fillCategories() {
+    const categorySelect = document.getElementById('category');
+
+    try {
+        const response = await axios.get(`${BASE_URL}/categories`);
+        const { data } = response;
+        data.forEach((c)=>{
+            const option = document.createElement('option');
+            option.value = c.id;
+            option.textContent = c.name;
+            categorySelect.appendChild(option);
+        })
+    } catch (error) {
+        console.log(error.message);
+
+    }
+}   
+
+fillCategories()

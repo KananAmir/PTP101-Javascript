@@ -12,12 +12,19 @@ const getProducts = async () => {
     }
 }
 
+
+
 getProducts()
 
 function renderTableRows(arr) {
     const tableBody = document.querySelector('tbody');
     tableBody.innerHTML = '';
-    arr.forEach((product) => {
+    arr.forEach(async (product) => {
+
+        const resp = await axios.get(`${BASE_URL}/categories/${product.category}`);
+        
+        const categoryName = resp.data.name;
+
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>
@@ -25,7 +32,7 @@ function renderTableRows(arr) {
             </td>
             <td>${product.title}</td>
             <td>$ ${product.price}</td>
-            <td>${product.category}</td>
+            <td>${categoryName}</td>
             <td>${product.description}</td>
             <td>
                 <button class='btn delete'><i class="fa-solid fa-trash-can"></i></button>
@@ -38,7 +45,7 @@ function renderTableRows(arr) {
 
         deleteBtn.addEventListener('click', (e) => {
             try {
-                
+
                 Swal.fire({
                     title: "Are you sure?",
                     text: "You won't be able to revert this!",
