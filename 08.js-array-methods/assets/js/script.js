@@ -391,12 +391,12 @@ console.log('b', b);
 const itCompanies = ['Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle',]
 
 
-if(itCompanies.length % 2 !== 0){
+if (itCompanies.length % 2 !== 0) {
     console.log(itCompanies[parseInt(itCompanies.length / 2)]);
-}else{
+} else {
     console.log(itCompanies.slice(itCompanies.length / 2 - 1, itCompanies.length / 2 + 1));
 
-} 
+}
 
 // function generateOtp(){
 //     return Math.floor(Math.random() * 9000) + 1000
@@ -404,10 +404,10 @@ if(itCompanies.length % 2 !== 0){
 
 let digits = '0123456789'
 
-function generateOtp(n){
+function generateOtp(n) {
     let result = ''
     for (let i = 0; i < n; i++) {
-          result += digits[Math.floor(Math.random() * 10)]
+        result += digits[Math.floor(Math.random() * 10)]
     }
 
     return Number(result)
@@ -420,3 +420,5 @@ console.log(generateOtp(6));
 console.log(generateOtp(6));
 console.log(generateOtp(6));
 console.log(generateOtp(6));
+
+
